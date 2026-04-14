@@ -27,10 +27,10 @@ module tt_um_sar_fms (
   // All output pins must be assigned. If not used, assign to 0.
   assign uo_out[6:5]  = 0;
   assign uo_out[4]  = ui_in[0]; 
-  assign uio_out = 0;
+  assign uio_out[7:4] = 0;
   assign uio_oe  = 8'b0000_1111; // (0 = input, 1 = output)
 
   // List all unused inputs to prevent warnings
-  wire _unused = &{ena, ui_in[7:1], 1'b0};
+  wire _unused = &{ena, ui_in[7:1], uio_in[7:0], 1'b0};
 
 endmodule
