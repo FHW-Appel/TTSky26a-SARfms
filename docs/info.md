@@ -15,6 +15,19 @@ The design can be tested with the TinyTapeout DevKit.
   * On pins `uio_out[3:0]`, each bit is set from MSB down to LSB on each clock cycle.
   * Depending on `ui_in[0]`, the current bit remains set or is cleared on the next clock cycle.
 
+Example: For the `ui_in[0]` sequence `"1010"` after a reset, the following signals should be present at the consecutively numbered clock cycles:
+
+1. `uio_out.value[3:0] == 0b1000` (internal)  
+   `uo_out.value[3:0] == 0b0000`
+2. `uio_out.value[3:0] == 0b1100` (internal)  
+   `uo_out.value[3:0] == 0b0000`
+3. `uio_out.value[3:0] == 0b1010` (internal)  
+   `uo_out.value[3:0] == 0b0000`
+4. `uio_out.value[3:0] == 0b1011` (internal)  
+   `uo_out.value[3:0] == 0b0000`
+5. `uio_out.value[3:0] == 0b1000` (internal -> restart)  
+   `uo_out.value[3:0] == 0b1010` (output result)
+
 
 ## External hardware
 
