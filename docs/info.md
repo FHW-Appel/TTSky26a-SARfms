@@ -1,20 +1,23 @@
-<!---
-
-This file is used to generate your project datasheet. Please fill in the information below and delete any unused
-sections.
-
-You can also include images in this folder and reference them in the markdown. Each image must be less than
-512 kb in size, and the combined size of all images must be less than 1 MB.
--->
-
 ## How it works
 
-Explain how your project works
+This is a parameterizable implementation of a successive approximation (SAR) finite state machine (FSM) for an ADC, as required for operation in a SAR ADC as shown in the following figure:
+
+<a title="White Flye, CC BY-SA 2.5 &lt;https://creativecommons.org/licenses/by-sa/2.5&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:SA_ADC_block_diagram.png"><img width="960" alt="SA ADC block diagram" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/SA_ADC_block_diagram.png/960px-SA_ADC_block_diagram.png"></a>
 
 ## How to test
 
-Explain how to use your project
+## How to test
+
+The design can be tested with the TinyTapeout DevKit.
+
+* Apply a sequence of four bits to pin `ui_in[0]`, synchronized to the clock.
+  * After five clock cycles, the serialized sequence should appear in parallel on pins `uo_out[3:0]`.
+  * On pins `uio_out[3:0]`, each bit is set from MSB down to LSB on each clock cycle.
+  * Depending on `ui_in[0]`, the current bit remains set or is cleared on the next clock cycle.
+
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+The design can be tested with the TinyTapeout DevKit.
+
+Alternatively, the design can be tested using a 4-bit DAC setup and a comparator, as shown in the figure above.
