@@ -6,8 +6,6 @@ This is a parameterizable implementation of a successive approximation (SAR) fin
 
 ## How to test
 
-## How to test
-
 The design can be tested with the TinyTapeout DevKit.
 
 * Apply a sequence of four bits to pin `ui_in[0]`, synchronized to the clock.
